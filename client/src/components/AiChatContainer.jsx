@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useAiChat } from '../context/AiChatContext'
+import { useAiChat } from '../context/AIChatContext'
 
 const AiChatContainer = () => {
   const messageEndRef = useRef(null)
