@@ -5,8 +5,7 @@ import App from './App.jsx'
 import './index.css'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { ChatProvider } from './context/ChatContext.jsx'
-import { AiChatProvider } from './context/AiChatContext.jsx'
-
+import { AiChatProvider } from "./context/AIChatContext.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <AuthProvider>
