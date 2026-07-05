@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 import Chatcontainer from '../components/Chatcontainer'
-import AiChatContainer from '../components/AiChatContainer'
+import AiChatContainer from '../components/AIChatContainer'
 import RightSidebar from '../components/RightSidebar'
 import { useChat } from '../context/ChatContext'
 
