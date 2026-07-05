@@ -8,11 +8,20 @@ import { Server } from 'socket.io';
 import userRouter from "./routes/user.route.js";
 import messageRouter from "./routes/message.route.js";
 import aiRouter from "./routes/ai.route.js";
+
 const app = express();
 const server = http.createServer(app);
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  // we'll add your Vercel URL here after deploying the frontend
+];
+
 export const io = new Server(server, {
-  cors: { origin: "*" },
+  cors: {
+    origin: allowedOrigins,
+    credentials: true,
+  },
 });
 
 // store online users: { userId: socketId }
@@ -39,12 +48,13 @@ io.on("connection", (socket) => {
 
 app.use(express.json({ limit: '4mb' }));
 app.use(cookieParser());
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 app.use("/api/status", (req, res) => res.send("server is live ... 😊"));
 app.use("/api/auth", userRouter);
 app.use("/api/message", messageRouter);
 app.use("/api/ai", aiRouter);
+
 await connectDB();
 
 const PORT = process.env.PORT || 5000;
