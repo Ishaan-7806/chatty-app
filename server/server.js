@@ -14,7 +14,7 @@ const server = http.createServer(app);
 
 const allowedOrigins = [
   "http://localhost:5173",
-  // we'll add your Vercel URL here after deploying the frontend
+  "https://chatty-app-2ryy.vercel.app",
 ];
 
 export const io = new Server(server, {
